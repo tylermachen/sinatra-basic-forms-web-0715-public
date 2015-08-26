@@ -16,14 +16,9 @@ class App < Sinatra::Base
     erb :'songs/edit'
   end
 
-  post '/songs/:id' do
+  patch '/songs/:id' do
     @song = Song.find(params[:id])
-    @song.title = params[:song][:title]
-    @song.artist = params[:song][:artist]
-    @song.album = params[:song][:album]
-    @song.genre = params[:song][:genre]
-    @song.length = params[:song][:length]
-    @song.save
+    @song.update(params[:song])
     redirect "songs/#{params[:id]}"
   end
 end

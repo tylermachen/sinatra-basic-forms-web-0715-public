@@ -8,6 +8,7 @@
       </div>
         <table class='table table-striped'>
           <form action="/songs/<%= @song.id %>" method="post">
+            <input type="hidden" name="_method" value="PATCH">
             <tr>
               <td><label for="title">Title</label></td>
               <td><input id="title" type="text" name="song[title]" value="<%= @song.title %>"></td>
